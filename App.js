@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import About from "./components/About";
+import Search from "./components/Search";
+import { TabNavigator } from 'react-navigation'
+import {StatusBar, View} from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Tabs = TabNavigator({
+    Search : { screen: Search },
+    About: { screen: About }
+},{
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+        indicatorStyle: {
+            height: 2,
+            backgroundColor: '#FFF'
+        },
+        style:{
+            backgroundColor: "#a2273C",
+            borderTopWidth: 1,
+            borderColor: "#3f101c"
+        }
+    }
+})
+
+export default class App extends React.Component{
+  render() {
+      return (
+          <View style={{flex: 1}}>
+              <StatusBar hidden={true}/>
+              <Tabs/>
+          </View>
+      );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
