@@ -28,16 +28,9 @@ export default class List extends React.Component{
     }
 
     render() {
-        if(this.state.report === null){
-            return (
-                <ActivityIndicator color={style.color} size="large"/>
-            )
-        }
-        else {
-            return (
-                <Text>Salut les gens</Text>
-            )
-        }
+        return (
+            <Text>Salut les gens</Text>
+        )
     }
 
 }
